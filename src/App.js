@@ -7,7 +7,7 @@ import 'firebase/compat/auth';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData, useCollectionDate } from 'react-firebase-hooks/firestore';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 firebase.initializeApp({
   apiKey: "AIzaSyBpceLXN4G2aXQgchnTvKe2VewqjCaObYk",
@@ -50,11 +50,13 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button onClick={() => auth.SignOut()}>Sign Out</button>
+    <button onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
 
 function ChatRoom() {
+  const dummy = useRef()
+
   const messagesRef = firestore.collection('messages');
   const query = messagesRef.orderBy('createdAt').limit(25);
 
@@ -75,13 +77,18 @@ function ChatRoom() {
     })
 
     setFormValue('');
+
+    dummy.current.scrollIntoView({behaviour: 'smooth'})
   }
 
   return(
     <>
-      <div>
+      <SignOut/>
+      <main>
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-      </div>
+
+        <div ref={dummy}></div>
+      </main>
 
       <form onSubmit={sendMessage}>
 
