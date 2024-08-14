@@ -26,10 +26,6 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        
-      </header>
-
       <section>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
@@ -44,13 +40,16 @@ function SignIn() {
   }
 
   return(
-    <button onClick={signInWithGoogle}>Sign in with Google</button>
+    <div className='signInBackground'>
+      <h1 className='signInTitle'>Fireplace</h1>
+      <button onClick={signInWithGoogle} className='signIn'>Sign in with Google</button>
+    </div>
   )
 }
 
 function SignOut() {
   return auth.currentUser && (
-    <button onClick={() => auth.signOut()}>Sign Out</button>
+    <button onClick={() => auth.signOut()} className='signOut'>Sign Out</button>
   )
 }
 
@@ -82,8 +81,8 @@ function ChatRoom() {
   }
 
   return(
-    <>
-      <SignOut/>
+    <div className='chat'>
+      <SignOut />
       <main>
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
 
@@ -97,7 +96,7 @@ function ChatRoom() {
         <button type='submit'>Send</button>
 
       </form>
-    </>
+    </div>
   )
 }
 
