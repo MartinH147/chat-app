@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFireFlameSimple } from '@fortawesome/free-solid-svg-icons';
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
@@ -83,17 +85,19 @@ function ChatRoom() {
   return(
     <div className='chat'>
       <SignOut />
-      <main>
+      <main className='messages'>
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
 
         <div ref={dummy}></div>
       </main>
 
-      <form onSubmit={sendMessage}>
+      <form onSubmit={sendMessage} className='messageForm'>
 
-        <input value={formValue} onChange={(e) => setFormValue(e.target.value)}/>
+        <input value={formValue} onChange={(e) => setFormValue(e.target.value)} className='messageInput'/>
 
-        <button type='submit'>Send</button>
+        <button type='submit' className='sendMessage'>
+          <FontAwesomeIcon icon={faFireFlameSimple} size='lg' inverse/>
+        </button>
 
       </form>
     </div>

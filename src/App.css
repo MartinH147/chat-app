@@ -21,8 +21,10 @@ img {
 }
 
 p {
-  margin: 20px;
+  margin: 0px 10px;
+  border-radius: 5px;
 }
+
 
 /* SIGN IN */
 .signInTitle {
@@ -47,41 +49,91 @@ p {
   border: none;
   color: #264653;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
 }
 
 .chat {
   background-color: #264653;
-  padding: 50px;
-  height: 500px;
+  padding: 20px;
+  height: 600px;
   width: 1000px;
   border-radius: 10px;
   border: 2px solid #264653;
-  box-shadow: 2px 2px 10px #fff;
+  box-shadow: 0px 0px 10px #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.message{
+.messages {
+  width: 100%;
+
+}
+
+.messageForm {
+  width: 100%;
+}
+
+.message {
   display: flex;
   flex-direction: row;
   text-align: center;
-  width: 100%;
   margin: 20px;
   border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .sent {
-  background-color: #F4A261;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.received {
-  background-color: #3A5763;
-  display: flex;
-  justify-content: flex-start;
+  flex-direction: row-reverse;
 }
 
 .sent img {
-  display: none;
+  /* display: none; */
+}
+
+.sent p {
+  background-color: #F4A261;
+  padding: 20px;
+}
+
+.received p {
+  background-color: #3A5763;
+  padding: 20px;
+  color: white;
+}
+
+.messageForm {
+  background-color: #264653;
+  height: 50px;
+  width: 700px;
+  border-radius: 10px;
+  border: 2px solid #264653;
+  box-shadow: 0px 0px 10px #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sendMessage {
+  background: none;
+  border: none;
+  margin: 0px 5px;
+}
+
+.messageInput {
+  background: none;
+  border: none;
+  width: 650px;
+  height: 40px;
+  margin: 0px 5px;
+  color: white;
+  font-size: 30px;
+}
+
+input:focus {
+  outline-width: 0;
 }
