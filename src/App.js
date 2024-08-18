@@ -1,3 +1,5 @@
+// credit to Fireship: https://www.youtube.com/watch?v=zQyrwxMPm88
+
 import logo from './logo.svg';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

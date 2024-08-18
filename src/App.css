@@ -91,10 +91,6 @@ p {
   flex-direction: row-reverse;
 }
 
-.sent img {
-  /* display: none; */
-}
-
 .sent p {
   background-color: #F4A261;
   padding: 20px;
